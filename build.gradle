@@ -11,7 +11,10 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.apache.spark:spark-core_2.12:3.3.0' // for running just with spark core
+    implementation 'org.apache.spark:spark-sql_2.12:3.3.0'  // spark sql consumes spark core
     implementation 'org.scala-lang:scala-library:2.12.16'
+    runtimeOnly 'org.apache.spark:spark-yarn_2.12:3.3.0'
     testImplementation 'org.scalatest:scalatest_2.12:3.2.12'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
