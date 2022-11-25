@@ -19,12 +19,15 @@ object SparkSessionFactory {
   }
 
   def getLocal(appName: String = "spark default application"): SparkSession = {
-    SparkSession.
+    val sc = SparkSession.
       builder.
       appName(appName).
       master("local[*]").
       config("spark.ui.enabled", "false").
       getOrCreate
+    sc.sparkContext.setLogLevel("WARN")
+    sc
+
   }
 
 }
